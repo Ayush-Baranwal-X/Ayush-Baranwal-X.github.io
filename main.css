@@ -1,0 +1,50 @@
+body {
+    background-color: cyan;
+}
+
+ul {
+    color: white;
+}
+
+ol {
+    color: white;
+}
+
+div {
+    background-color: black;
+}
+
+.stylish {
+    background-color: black;
+    border-color: cyan;
+    border-style: double;
+    border-width: 6px;
+    color: white;
+    text-align: center;
+    position: fixed;
+    bottom: 6;
+    right: 20;
+    width: 10%;
+}
+
+.brighten {
+    opacity: 0.8;
+}
+
+.brighten:hover {
+    opacity: 1;
+}
+
+.nav {
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 1% 8%;
+}
+
+
+.nav:hover {
+    text-decoration: none;
+    color: black;
+    background-color: white;
+}
