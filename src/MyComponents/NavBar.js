@@ -4,50 +4,52 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link } from 'react-router-dom'
 
 function NavScrollExample(props) {
-  return (
-    <Navbar style={{position:'fixed', width:'100%', padding:'6px 300px', zIndex:'1'}} expand="lg" className="bg-body-tertiary">
-      <Container className='justify-content-center'>
-        <Navbar.Brand href="#">{props.title}</Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="me-auto my-2 my-lg-0"
-            style={{ maxHeight: '100px' }}
-            navbarScroll
-          >
-            <Nav.Link href="/" active = {props.home}>Home</Nav.Link>
-            <Nav.Link href="/projects" active = {props.projects}>Projects</Nav.Link>
-            <NavDropdown title="Link" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action5">
-                Something else here
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-          {props.searchBar === true ? 
-          <Form className="d-flex">
-          <Form.Control
-            type="search"
-            placeholder="Search"
-            className="me-2"
-            aria-label="Search"
-          />
-          <Button variant="outline-success">Search</Button>
-          </Form> : ""}
-          
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  );
+    return (
+        <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{ position: 'fixed', width: '100%', padding: '6px 300px', zIndex: '1' }}>
+            <div className="container-fluid">
+                <Link className="navbar-brand" to="/">{props.title}</Link>
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li className="nav-item">
+                            {props.home === true ?
+                                <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+                                :
+                                <Link className="nav-link" aria-current="page" to="/">Home</Link>
+                            }
+                        </li>
+                        <li className="nav-item">
+                            {props.projects === true ?
+                                <Link className="nav-link active" to="/projects">Projects</Link>
+                                :
+                                <Link className="nav-link" to="/projects">Projects</Link>
+                            }
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="https://rail.pythonanywhere.com" target='blank'>Blog</a>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="https://dmail.pythonanywhere.com" target='blank'>Dmail</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="https://listxtodo.web.app" target='blank'>To Do</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/terminal" target='blank'>Terminal</Link>
+                        </li>
+                    </ul>
+                    {props.theme === true ? <button className="btn" onClick={() => { props.toggleTheme() }}>
+                        <i class="fa-solid fa-circle-half-stroke"></i>
+                    </button> : ""}
+                </div>
+            </div>
+        </nav>
+    );
 }
 
 export default NavScrollExample;
