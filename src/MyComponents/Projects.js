@@ -1,8 +1,8 @@
 import Accordion from 'react-bootstrap/Accordion';
 
-function AlwaysOpenExample() {
+function AlwaysOpenExample(props) {
     return (
-        <div style={{margin: '0px 310px'}}>
+        <div style={{marginLeft: props.mobile === false ? '19.5%' : '5%', marginRight: props.mobile === false ? '19.5%' : '5%'}}>
             <br></br>
             <h1>List of Projects</h1>
             <br></br>

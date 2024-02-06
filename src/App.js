@@ -21,6 +21,19 @@ import {
 
 
 function App() {
+  // let mobile = false;
+  // function isMobile() {
+  //   const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+  //   return regex.test(navigator.userAgent);
+  // }
+  
+  let screenWidth = window.screen.width;
+  let screenHeight = window.screen.height;
+  let mobile = false;
+  if(screenWidth <= 1024 || screenHeight <= 768){
+    mobile = true;
+  }
+
   let initTheme = JSON.parse(localStorage.getItem('darkMode'));
   
   const [darkMode, setMode] = useState(initTheme);
@@ -57,28 +70,27 @@ function App() {
         <Routes>
           <Route exact path='/' element={
             <>
-              <Header title="Ayush Kumar Baranwal" home={true} projects={false} toggleTheme={toggleTheme} darkMode = {darkMode} />
-              <About />
-              <Social darkMode = {darkMode}/>
+              <Header title="Ayush Kumar Baranwal" home={true} projects={false} toggleTheme={toggleTheme} darkMode = {darkMode} mobile = {mobile} />
+              <About mobile = {mobile}/>
             </>
           }>
           </Route>
           <Route exact path='/projects' element={
             <>
-              <Header title="Ayush Kumar Baranwal" home={false} projects={true} toggleTheme={toggleTheme} darkMode = {darkMode} />
-              <Projects />
-              <Social darkMode = {darkMode}/>
+              <Header title="Ayush Kumar Baranwal" home={false} projects={true} toggleTheme={toggleTheme} darkMode = {darkMode} mobile = {mobile} />
+              <Projects mobile = {mobile}/>
             </>
           }>
           </Route>
           <Route exact path = '/terminal' element={
             <>
-            <Header title="Ayush Kumar Baranwal" home={false} projects={true} toggleTheme={toggleTheme} darkMode = {darkMode} />
+            <Header title="Ayush Kumar Baranwal" home={false} projects={true} toggleTheme={toggleTheme} darkMode = {darkMode} mobile = {mobile} />
             </>
           }>
           </Route>
         </Routes>
-        <Footer/>
+        <Social darkMode = {darkMode} mobile = {mobile}/>
+        <Footer mobile = {mobile}/>
       </Router>
     </>
   );

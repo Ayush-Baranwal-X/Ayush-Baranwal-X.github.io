@@ -4,7 +4,7 @@ import Navbar from './NavBar.js';
 const Header = (props) => {
   return (
     <>
-        <Navbar title = {props.title} home = {props.home} projects = {props.projects} toggleTheme = {props.toggleTheme} darkMode = {props.darkMode}/>
+        <Navbar title = {props.title} home = {props.home} projects = {props.projects} toggleTheme = {props.toggleTheme} darkMode = {props.darkMode} mobile = {props.mobile}/>
         <div style={{height:'60px'}}></div>
     </>
   )

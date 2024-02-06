@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 
 function NavScrollExample(props) {
     return (
-        <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{ position: 'fixed', width: '100%', padding: '6px 300px', zIndex: '1' }}>
+        <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{ position: 'fixed', width: '100%', paddingLeft:props.mobile === true ? '':'19.5%', paddingRight:props.mobile === true ? '':'19.5%', zIndex: '1' }}>
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/">{props.title}</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

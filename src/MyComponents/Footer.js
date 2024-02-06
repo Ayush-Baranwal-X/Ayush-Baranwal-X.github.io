@@ -1,10 +1,10 @@
 import React from 'react'
 
-const s = () => {
+const s = (props) => {
     return (
         <>
             <div style={{height:'40px'}}></div>
-            <footer style={{ position: 'fixed', backgroundColor: 'black', color: 'white', top: '95vh', height: '40px', width: '100%', textAlign:'center', paddingTop:'5px' }}>
+            <footer style={{ position: 'fixed', backgroundColor: 'black', color: 'white', bottom: '0', height: '30px', width: '100%', textAlign:'center', paddingTop:'0.2%' }}>
                 © 2024 Ayush. All Rights Reserved.
             </footer>
         </>
