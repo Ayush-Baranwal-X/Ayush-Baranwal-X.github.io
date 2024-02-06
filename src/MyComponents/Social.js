@@ -8,16 +8,24 @@ const Social = (props) => {
             <br></br>
             <center>
                 <div style={{ margin: '0px 310px' }}>
-                    <Link to = 'mailto:ayushabhilasha@gmail.com'>
-                    <i class="fa-solid fa-envelope fa-4x" style={{color:props.darkMode===true?'white':'black'}}></i>
+                    <Link to = 'mailto:ayushabhilasha@gmail.com' style={{color:props.darkMode===true?'white':'black'}}>
+                    <i class="fa-solid fa-envelope fa-4x" id={props.darkMode===true?'hover_black':'hover_white'}></i>
                     </Link>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <Link to = 'https://github.com/Ayush-Baranwal-X' target='blank'>
-                    <i class="fa-brands fa-github fa-4x" style={{color:props.darkMode===true?'white':'black'}}></i>
+                    <Link to = 'https://github.com/Ayush-Baranwal-X' target='blank' style={{color:props.darkMode===true?'white':'black'}}>
+                    <i class="fa-brands fa-github fa-4x" id={props.darkMode===true?'hover_black':'hover_white'}></i>
                     </Link>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <Link to = 'https://www.linkedin.com/in/akbiitd/' target='blank'>
-                    <i class="fa-brands fa-linkedin fa-4x" style={{color:props.darkMode===true?'white':'black'}}></i>
+                    <Link to = 'https://www.linkedin.com/in/akbiitd/' target='blank' style={{color:props.darkMode===true?'white':'black'}}>
+                    <i class="fa-brands fa-linkedin fa-4x" id={props.darkMode===true?'hover_black':'hover_white'}></i>
+                    </Link>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <Link to = 'https://www.instagram.com/cybershot_x/' target='blank' style={{color:props.darkMode===true?'white':'black'}}>
+                    <i class="fa-brands fa-instagram fa-4x" id={props.darkMode===true?'hover_black':'hover_white'}></i>
+                    </Link>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <Link to = 'https://calendly.com/akbiitd/' target='blank' style={{color:props.darkMode===true?'white':'black'}}>
+                    <i class="fa-solid fa-calendar fa-4x" id={props.darkMode===true?'hover_black':'hover_white'}></i>
                     </Link>
                 </div>
             </center>

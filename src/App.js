@@ -21,10 +21,12 @@ import {
 
 
 function App() {
-  const [darkMode, setMode] = useState(false);
-
+  let initTheme = JSON.parse(localStorage.getItem('darkMode'));
+  
+  const [darkMode, setMode] = useState(initTheme);
+  
   const toggleTheme = () => {
-    if (document.documentElement.getAttribute('data-bs-theme') === 'dark') {
+    if (darkMode === true) {
       document.documentElement.setAttribute('data-bs-theme', 'light');
       setMode(false)
     }
@@ -32,8 +34,22 @@ function App() {
       document.documentElement.setAttribute('data-bs-theme', 'dark');
       setMode(true)
     }
+    // We are passing !darkMode here as the darkMode variable is not updated yet irrespective of the code just above
+    localStorage.setItem('darkMode',JSON.stringify(!darkMode));
     return;
   }
+  
+  useEffect (()=>{
+    if(initTheme != null)
+    {
+      document.documentElement.setAttribute('data-bs-theme', initTheme ? 'dark':'white');
+    }
+    // Clean up function (optional but good practise)
+    return () =>
+    {
+
+    };
+  },[initTheme]);
 
   return (
     <>
@@ -41,7 +57,7 @@ function App() {
         <Routes>
           <Route exact path='/' element={
             <>
-              <Header title="Ayush Kumar Baranwal" theme={true} home={true} projects={false} toggleTheme={toggleTheme} />
+              <Header title="Ayush Kumar Baranwal" home={true} projects={false} toggleTheme={toggleTheme} darkMode = {darkMode} />
               <About />
               <Social darkMode = {darkMode}/>
             </>
@@ -49,7 +65,7 @@ function App() {
           </Route>
           <Route exact path='/projects' element={
             <>
-              <Header title="Ayush Kumar Baranwal" theme={true} home={false} projects={true} toggleTheme={toggleTheme} />
+              <Header title="Ayush Kumar Baranwal" home={false} projects={true} toggleTheme={toggleTheme} darkMode = {darkMode} />
               <Projects />
               <Social darkMode = {darkMode}/>
             </>
@@ -57,7 +73,7 @@ function App() {
           </Route>
           <Route exact path = '/terminal' element={
             <>
-            <Header title="Ayush Kumar Baranwal" theme={true} home={false} projects={false} toggleTheme={toggleTheme} />
+            <Header title="Ayush Kumar Baranwal" home={false} projects={true} toggleTheme={toggleTheme} darkMode = {darkMode} />
             </>
           }>
           </Route>

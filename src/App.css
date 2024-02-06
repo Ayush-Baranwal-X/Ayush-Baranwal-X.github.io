@@ -143,6 +143,10 @@
 
 /* Socials */
 
-i.fa-brands:hover {
+i#hover_white:hover {
   color: purple;
+}
+
+i#hover_black:hover {
+  color: cyan;
 }

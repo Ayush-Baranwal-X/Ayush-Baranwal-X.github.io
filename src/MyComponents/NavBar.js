@@ -18,34 +18,41 @@ function NavScrollExample(props) {
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
                             {props.home === true ?
-                                <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+                                <Link className="nav-link" aria-current="page" to="/"><b>Home</b></Link>
                                 :
                                 <Link className="nav-link" aria-current="page" to="/">Home</Link>
                             }
                         </li>
                         <li className="nav-item">
                             {props.projects === true ?
-                                <Link className="nav-link active" to="/projects">Projects</Link>
+                                <Link className="nav-link" to="/projects"><b>Projects</b></Link>
                                 :
                                 <Link className="nav-link" to="/projects">Projects</Link>
                             }
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="https://rail.pythonanywhere.com" target='blank'>Blog</a>
+                            <Link className="nav-link" to="https://bit.ly/akbiitd-cv" target='_blank'>Resume</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="https://dmail.pythonanywhere.com" target='blank'>Dmail</Link>
+                            <Link className="nav-link" to="https://rail.pythonanywhere.com" target='_blank'>Blog</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="https://listxtodo.web.app" target='blank'>To Do</Link>
+                            <Link className="nav-link" to="https://dmail.pythonanywhere.com" target='_blank'>Dmail</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/terminal" target='blank'>Terminal</Link>
+                            <Link className="nav-link" to="https://listxtodo.web.app" target='_blank'>To Do</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/terminal" target='_blank'>Terminal</Link>
                         </li>
                     </ul>
-                    {props.theme === true ? <button className="btn" onClick={() => { props.toggleTheme() }}>
-                        <i class="fa-solid fa-circle-half-stroke"></i>
-                    </button> : ""}
+                    <button className="btn" onClick={() => { props.toggleTheme() }}>
+                        {props.darkMode === true ?
+                        <i class="fa-solid fa-sun fa-1x"></i>
+                        :
+                        <i class="fa-solid fa-moon fa-1x"></i>
+                        }
+                    </button>
                 </div>
             </div>
         </nav>
