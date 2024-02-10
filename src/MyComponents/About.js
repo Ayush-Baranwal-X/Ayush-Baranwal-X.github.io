@@ -49,10 +49,10 @@ const About = (props) => {
                         <img src='Ayush.jpg' style={{width: '50%', height:'50%', marginLeft: "15px" }}></img>
                     </center>
                     <br></br>
-                    <p style={{ textAlign: 'justify', marginBottom: '25px' , fontSize: '14px'}}>
+                    <p style={{ textAlign: 'justify', marginBottom: '25px' , fontSize: '16px'}}>
                         Hi there! I'm Ayush Kumar Baranwal, a driven software enthusiast and Engineering graduate from the prestigious Indian Institute of Technology Delhi. My journey through academia and diverse internships has fueled my passion for software development and technology innovation. I thrive on transforming ideas into reality through code, crafting impactful solutions that blend creativity with technical excellence. My experience in analyzing market opportunities, developing user-centric applications like websites and Android apps, and crafting machine learning models has honed my skills across various tech stacks, including C++, Python, Java, and web development frameworks like React, Node.js and Django.
                     </p>
-                    <p style={{ textAlign: 'justify' , fontSize : '14px'}}>
+                    <p style={{ textAlign: 'justify' , fontSize : '16px'}}>
                         I'm on a quest to continuously learn, innovate, and collaborate on projects that push the boundaries of technology. Let's connect and explore opportunities where I can contribute my technical expertise and passion for software development!
                     </p>
                 </div>
