@@ -30,8 +30,12 @@ function App() {
   let screenWidth = window.screen.width;
   let screenHeight = window.screen.height;
   let mobile = false;
-  if(screenWidth <= 1024 || screenHeight <= 768){
+  let tab = false;
+  if(screenWidth <= 768 || screenHeight <= 768){
     mobile = true;
+  }
+  if(((screenWidth <= 1024 && screenWidth > 768))){
+    tab = true;
   }
 
   let initTheme = JSON.parse(localStorage.getItem('darkMode'));
@@ -70,21 +74,21 @@ function App() {
         <Routes>
           <Route exact path='/' element={
             <>
-              <Header title="Ayush Kumar Baranwal" home={true} projects={false} toggleTheme={toggleTheme} darkMode = {darkMode} mobile = {mobile} />
-              <About mobile = {mobile}/>
+              <Header title="Ayush Kumar Baranwal" home={true} projects={false} toggleTheme={toggleTheme} darkMode = {darkMode} mobile = {mobile} tab = {tab} />
+              <About mobile = {mobile} tab = {tab}/>
             </>
           }>
           </Route>
           <Route exact path='/projects' element={
             <>
-              <Header title="Ayush Kumar Baranwal" home={false} projects={true} toggleTheme={toggleTheme} darkMode = {darkMode} mobile = {mobile} />
+              <Header title="Ayush Kumar Baranwal" home={false} projects={true} toggleTheme={toggleTheme} darkMode = {darkMode} mobile = {mobile} tab = {tab} />
               <Projects mobile = {mobile}/>
             </>
           }>
           </Route>
           <Route exact path = '/terminal' element={
             <>
-            <Header title="Ayush Kumar Baranwal" home={false} projects={true} toggleTheme={toggleTheme} darkMode = {darkMode} mobile = {mobile} />
+            <Header title="Ayush Kumar Baranwal" home={false} projects={true} toggleTheme={toggleTheme} darkMode = {darkMode} mobile = {mobile} tab = {tab} />
             </>
           }>
           </Route>

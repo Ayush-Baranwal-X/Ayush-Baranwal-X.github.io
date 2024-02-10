@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 
 function NavScrollExample(props) {
     return (
-        <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{ position: 'fixed', width: '100%', paddingLeft:props.mobile === true ? '':'19.5%', paddingRight:props.mobile === true ? '':'19.5%', zIndex: '1' }}>
+        <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{ position: 'fixed', width: '100%', paddingLeft: (props.mobile || props.tab) === true ? '':'19.5%', paddingRight: (props.mobile || props.tab) === true ? '':'19.5%', zIndex: '1' }}>
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/">{props.title}</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,10 +40,10 @@ function NavScrollExample(props) {
                             <Link className="nav-link" to="https://dmail.pythonanywhere.com" target='_blank'>Dmail</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="https://listxtodo.web.app" target='_blank'>To Do</Link>
+                            <Link className="nav-link" to="https://listxtodo.web.app" target='_blank'>To-Do</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/terminal" target='_blank'>Terminal</Link>
+                            <Link className="nav-link" to="https://akbxterminal.web.app" target='_blank'>Terminal</Link>
                         </li>
                     </ul>
                     <button className="btn" onClick={() => { props.toggleTheme() }}>
