@@ -31,10 +31,10 @@ function App() {
   let screenHeight = window.screen.height;
   let mobile = false;
   let tab = false;
-  if(screenWidth <= 768 || screenHeight <= 768){
+  if(screenWidth < 768){
     mobile = true;
   }
-  if(((screenWidth <= 1024 && screenWidth > 768))){
+  if(((screenWidth <= 1024 && screenWidth >= 768))){
     tab = true;
   }
 
