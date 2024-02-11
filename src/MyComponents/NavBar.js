@@ -34,13 +34,16 @@ function NavScrollExample(props) {
                             <Link className="nav-link" to="https://bit.ly/akbiitd-cv" target='_blank'>Resume</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="https://rail.pythonanywhere.com" target='_blank'>Blog</Link>
-                        </li>
-                        <li className="nav-item">
                             <Link className="nav-link" to="https://dmail.pythonanywhere.com" target='_blank'>Dmail</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="https://listxtodo.web.app" target='_blank'>To-Do</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="https://ayushbaranwal.itch.io/" target='_blank'>Itch</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="https://rail.pythonanywhere.com" target='_blank'>Blog</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="https://akbxterminal.web.app" target='_blank'>Terminal</Link>
