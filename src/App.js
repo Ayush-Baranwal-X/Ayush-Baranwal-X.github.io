@@ -9,6 +9,7 @@ import Footer from './MyComponents/Footer.js';
 import About from './MyComponents/About.js';
 import Projects from './MyComponents/Projects.js';
 import Social from './MyComponents/Social.js';
+import Experience from './MyComponents/Experience.js'
 import $ from 'jquery';
 import { useState, useEffect } from 'react';
 import { Navigate, useLocation , useNavigate} from 'react-router-dom';
@@ -134,16 +135,28 @@ function App() {
         <Routes>
           <Route exact path='/' element={
             <>
-              <Header title="Ayush Kumar Baranwal" home={true} projects={false} toggleTheme={toggleTheme} progress={true} darkMode={darkMode} mobile={mobile} tab={tab} />
+              {/* Here in the header component props.projects and props.experience should have values = false. But we don't need to pass them as default values are used for props which are not passed. And for a boolean it is false. */}
+              <Header title="Ayush Kumar Baranwal" home={true} toggleTheme={toggleTheme} progress={true} darkMode={darkMode} mobile={mobile} tab={tab} />
               <About mobile={mobile} tab={tab} />
               <ScrollComponent />
+              {/* Modify scroll component is used in case you are using elements in your app which can change the height of the page. It basically dynamically changes the current progress in the progress bar. */}
+              {/* Here it is not needed */}
             </>
           }>
           </Route>
           <Route exact path='/projects' element={
             <>
-              <Header title="Ayush Kumar Baranwal" home={false} projects={true} toggleTheme={toggleTheme} progress={true} darkMode={darkMode} mobile={mobile} tab={tab} />
+              <Header title="Ayush Kumar Baranwal" projects={true} toggleTheme={toggleTheme} progress={true} darkMode={darkMode} mobile={mobile} tab={tab} />
               <Projects mobile={mobile} darkMode = {darkMode}/>
+              <ScrollComponent />
+              <ModifyHeightProgressBarComponent />
+            </>
+          }>
+          </Route>
+          <Route exact path='/experience' element={
+            <>
+              <Header title="Ayush Kumar Baranwal" experience={true} toggleTheme={toggleTheme} progress={true} darkMode={darkMode} mobile={mobile} tab={tab} />
+              <Experience mobile={mobile} darkMode = {darkMode}/>
               <ScrollComponent />
               <ModifyHeightProgressBarComponent />
             </>
