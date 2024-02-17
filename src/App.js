@@ -141,6 +141,8 @@ function App() {
               <ScrollComponent />
               {/* Modify scroll component is used in case you are using elements in your app which can change the height of the page. It basically dynamically changes the current progress in the progress bar. */}
               {/* Here it is not needed */}
+              {/* Still Kept it just in case */}
+              <ModifyHeightProgressBarComponent />
             </>
           }>
           </Route>
