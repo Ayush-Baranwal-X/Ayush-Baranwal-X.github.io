@@ -71,13 +71,13 @@
   border-radius: 10px;
 }
 
-.glow-on-hover:active {
+/* .glow-on-hover:active {
   color: #000
 }
 
 .glow-on-hover:active:after {
   background: transparent;
-}
+} */
 
 .glow-on-hover:hover:before {
   opacity: 1;
