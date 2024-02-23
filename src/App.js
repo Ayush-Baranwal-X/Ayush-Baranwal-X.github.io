@@ -10,6 +10,7 @@ import About from './MyComponents/About.js';
 import Projects from './MyComponents/Projects.js';
 import Social from './MyComponents/Social.js';
 import Experience from './MyComponents/Experience.js'
+import PageNotFound from './MyComponents/PageNotFound.js'
 import $ from 'jquery';
 import { useState, useEffect } from 'react';
 import { Navigate, useLocation , useNavigate} from 'react-router-dom';
@@ -157,6 +158,15 @@ function App() {
             <>
               <Header title="Ayush Kumar Baranwal" experience={true} toggleTheme={toggleTheme} progress={true} darkMode={darkMode} mobile={mobile} tab={tab} />
               <Experience mobile={mobile} darkMode = {darkMode}/>
+              <ScrollComponent />
+              <ModifyHeightProgressBarComponent />
+            </>
+          }>
+          </Route>
+          <Route exact path='*' element={
+            <>
+              <Header title="Ayush Kumar Baranwal" experience={true} toggleTheme={toggleTheme} progress={true} darkMode={darkMode} mobile={mobile} tab={tab} />
+              <PageNotFound/>
               <ScrollComponent />
               <ModifyHeightProgressBarComponent />
             </>
