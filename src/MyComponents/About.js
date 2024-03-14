@@ -86,7 +86,7 @@ const About = (props) => {
                     <br></br>
                     <h1 className='glow-on-hover' style={{ height: '10%', fontSize: '20px', margin: '0.5% 0px', width: '26%', paddingLeft: '1%', paddingBottom:'0.2%' }}>I'm interested in...</h1>
                     <p style={{ textAlign: 'justify', fontSize: '17px' }}>
-                        <b>Web Development</b>: React, Django, Next.js, HTML, CSS, Typescript, JavaScript, Bootstrap
+                        <b>Web Development</b>: React, Django, Node.js, Express, HTML, CSS, Typescript, JavaScript, Bootstrap
                         <br></br>
                         <b>Game Development</b>: Unity Game Engine, C#, Godot Game Engine, GDScript
                         <br></br>
