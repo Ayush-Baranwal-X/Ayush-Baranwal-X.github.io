@@ -19,19 +19,19 @@ const About = (props) => {
                     <h1 className='glow-on-hover' style={{ height: '100%', fontSize: '26px', margin: '0.5% 0px', width: '26%', paddingLeft: '1%', paddingBottom:'0.2%' }}>I'm interested in...</h1>
                     <p style={{ textAlign: 'justify', fontSize: '17px' }}>
                         <table>
-                            <tr>
+                            <tr style={{verticalAlign:'top'}}>
                                 <td><b>Web Development</b></td>
-                                <td>React, Django, Next.js, HTML, CSS, Typescript, JavaScript, Firebase, Pythonanywhere</td>
+                                <td>React, Django, Node.js, Express, HTML, CSS, JavaScript, Firebase, Pythonanywhere</td>
                             </tr>
-                            <tr>
+                            <tr style={{verticalAlign:'top'}}>
                                 <td><b>Game Development</b></td>
                                 <td>Unity Game Engine, C#, Godot Game Engine, GDScript</td>
                             </tr>
-                            <tr>
+                            <tr style={{verticalAlign:'top'}}>
                                 <td><b>Machine Learning</b></td>
                                 <td>PyTorch, NumPy, Pandas, Matplotlib, Scikit-learn</td>
                             </tr>
-                            <tr>
+                            <tr style={{verticalAlign:'top'}}>
                                 <td style={{ paddingRight: '15px' }}><b>Algorithmic Problem-Solving</b></td>
                                 <td>C, C++, Java, Python</td>
                             </tr>
@@ -39,7 +39,7 @@ const About = (props) => {
                     </p>
                     <br></br>
                     <h1 className='glow-on-hover' style={{ height: '100%', fontSize: '26px', margin: '0.5% 0px', width: '26%', paddingLeft: '1%', paddingBottom:'0.2%' }}>My Hobbies are...</h1>
-                    <p style={{ textAlign: 'justify', fontSize: '17px' }}>
+                    <p style={{ textAlign: 'left', fontSize: '17px' }}>
                         <table>
                             <tr>
                                 <td><b>Reading</b></td>
@@ -86,7 +86,7 @@ const About = (props) => {
                     <br></br>
                     <h1 className='glow-on-hover' style={{ height: '10%', fontSize: '20px', margin: '0.5% 0px', width: '26%', paddingLeft: '1%', paddingBottom:'0.2%' }}>I'm interested in...</h1>
                     <p style={{ textAlign: 'justify', fontSize: '17px' }}>
-                        <b>Web Development</b>: React, Django, Node.js, Express, HTML, CSS, Typescript, JavaScript, Bootstrap
+                        <b>Web Development</b>: React, Django, Node.js, Express, HTML, CSS, JavaScript, Bootstrap
                         <br></br>
                         <b>Game Development</b>: Unity Game Engine, C#, Godot Game Engine, GDScript
                         <br></br>
@@ -130,7 +130,7 @@ const About = (props) => {
                     <br></br>
                     <h1 className='glow-on-hover' style={{ height: '10%', fontSize: '20px', margin: '0.5% 0px', width: '55%', paddingLeft: '1%', paddingBottom:'0.2%' }}>I'm interested in...</h1>
                     <p style={{ textAlign: 'justify', fontSize: '17px' }}>
-                        <b>Web Development</b>: React, Django, Next.js, HTML, CSS, Typescript, JavaScript, Bootstrap
+                        <b>Web Development</b>: React, Django, Node.js, Express, HTML, CSS, JavaScript, Bootstrap
                         <br></br>
                         <b>Game Development</b>: Unity Game Engine, C#, Godot Game Engine, GDScript
                         <br></br>
