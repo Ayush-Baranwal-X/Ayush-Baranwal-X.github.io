@@ -12,13 +12,11 @@ function AlwaysOpenExample(props) {
                 <Accordion.Item eventKey="0">
                     <Accordion.Header><b style={{ color: props.darkMode === false ? 'black' : 'white' }}>Dmail (Email Website)</b></Accordion.Header>
                     <Accordion.Body>
-                        - Built a free web-based email service using Django as the backend and HTML, CSS, JavaScript and Bootstrap as the frontend
+                        - Created a web service using Django with SQLite, hosted it on PythonAnywhere, and published it on GitHub
                         <br></br>
-                        - Used SQLite database to store all data, uploaded the website on GitHub and hosted the website using PythonAnywhere
+                        - Implemented Django authentication with session-based login/logout, credential validation, and feedback messages
                         <br></br>
-                        - Implemented a system using Django which allows anyone to create a new account or log in and log out of their own accounts
-                        <br></br>
-                        - Included a feature that allows users to send emails, receive emails, reply to emails and delete the sent and received emails
+                        - Developed an efficient email system with a responsive UI for sending, receiving, replying, and deleting emails
                         <br></br>
                         <br></br>
                         You can visit it at : <Link style={{ color: props.darkMode === false ? 'purple' : 'cyan', textDecoration: 'none' }} to='https://dmail.pythonanywhere.com/' target='_blank' >dmail.pythonanywhere.com</Link>
@@ -26,6 +24,20 @@ function AlwaysOpenExample(props) {
                 </Accordion.Item>
 
                 <Accordion.Item eventKey="1">
+                    <Accordion.Header><b>Blog Express (Blog Website)</b></Accordion.Header>
+                    <Accordion.Body>
+                        - Built a full-stack web app using Express.js, Handlebars, and MongoDB, with session-based authentication
+                        <br></br>
+                        - Implemented MVC architecture, server-side search for efficient blog filtering, and deployed securely on Render
+                        <br></br>
+                        - Secured credentials using dotenv and Render environment variables, optimized middleware, added error handling
+                        <br></br>
+                        <br></br>
+                        You can visit it at : <Link style={{ color: props.darkMode === false ? 'purple' : 'cyan', textDecoration: 'none' }} to='https://blog-express-9t2d.onrender.com/' target='_blank' >bit.ly/ayushblogexpress</Link>
+                    </Accordion.Body>
+                </Accordion.Item>
+
+                {/* <Accordion.Item eventKey="1">
                     <Accordion.Header><b>Ayush's Blog (Blog Website)</b></Accordion.Header>
                     <Accordion.Body>
                         - Built a blog using Django as the backend and HTML, CSS and JavaScript as the frontend and regularly wrote articles for it
@@ -37,23 +49,35 @@ function AlwaysOpenExample(props) {
                         <br></br>
                         You can visit it at : <Link style={{ color: props.darkMode === false ? 'purple' : 'cyan', textDecoration: 'none' }} to='https://rail.pythonanywhere.com/' target='_blank' >rail.pythonanywhere.com</Link>
                     </Accordion.Body>
-                </Accordion.Item>
+                </Accordion.Item> */}
 
                 <Accordion.Item eventKey="2">
+                    <Accordion.Header><b>Terminal (Web Terminal)</b></Accordion.Header>
+                    <Accordion.Body>
+                        - Designed a web-based terminal using jQuery Terminal for a command-line experience, featuring diverse commands
+                        <br></br>
+                        - Hosted the site using Firebase, used Tech Domains to get a custom domain name, and uploaded all files on Github
+                        <br></br>
+                        - Integrated various APIs (Joke API, Weather API, Image API, etc) to fetch and display data based on user input
+                        <br></br>
+                        <br></br>
+                        You can visit it at : <Link style={{ color: props.darkMode === false ? 'purple' : 'cyan', textDecoration: 'none' }} to='https://akbxterminal.web.app/' target='_blank' >akbxterminal.web.app/</Link>
+                    </Accordion.Body>
+                </Accordion.Item>
+
+                <Accordion.Item eventKey="3">
                     <Accordion.Header><b>Driver Club (Racing Game)</b></Accordion.Header>
                     <Accordion.Body>
-                        - Designed a Racing Video Game set in a custom-made terrain, using Unity Game Engine as an individual project under DevClub
+                        - Made a racing game in Unity with custom terrains, polished UI, and a sound system, and published it on itch.io
                         <br></br>
-                        - Included driving as the main mechanic along with a single-player and a local multiplayer mode allowing 2 people to play together
-                        <br></br>
-                        - Implemented a fully functional UI and support for gamepad along with a music and sound effects system for the game
+                        - Created advanced driving physics, checkpoints, single-player and local multiplayer modes, and immersive lighting
                         <br></br>
                         <br></br>
                         You can visit it at : <Link style={{ color: props.darkMode === false ? 'purple' : 'cyan', textDecoration: 'none' }} to='https://ayushbaranwal.itch.io/driverclub' target='_blank' >www.ayushbaranwal.itch.io/driverclub</Link>
                     </Accordion.Body>
                 </Accordion.Item>
 
-                <Accordion.Item eventKey="3">
+                <Accordion.Item eventKey="4">
                     <Accordion.Header><b>Wonderland (Open World Shooting Game)</b></Accordion.Header>
                     <Accordion.Body>
                         - Designed a Video Game based on a small Open World, using Unity Game Engine as an individual project under DevClub
@@ -65,7 +89,19 @@ function AlwaysOpenExample(props) {
                     </Accordion.Body>
                 </Accordion.Item>
 
-                <Accordion.Item eventKey="4">
+                <Accordion.Item eventKey="5">
+                    <Accordion.Header><b>To Do List (To Do Website)</b></Accordion.Header>
+                    <Accordion.Body>
+                        - Developed a free web-based To-Do List application using a technology stack that included HTML, CSS, Bootstrap, and React as the frontend framework
+                        <br></br>
+                        - Implemented Local Storage for data persistence, uploaded the project on GitHub and hosted the website using Firebase
+                        <br></br>
+                        <br></br>
+                        You can visit it at : <Link style={{ color: props.darkMode === false ? 'purple' : 'cyan', textDecoration: 'none' }} to='https://listxtodo.web.app/' target='_blank' >listxtodo.web.app</Link>
+                    </Accordion.Body>
+                </Accordion.Item>
+
+                <Accordion.Item eventKey="6">
                     <Accordion.Header><b>Real Estate Price Prediction (ML Model)</b></Accordion.Header>
                     <Accordion.Body>
                         - Predicted real estate prices based on several features using Python, NumPy, Pandas, Scikit-learn, Matplotlib and Joblib
@@ -79,7 +115,7 @@ function AlwaysOpenExample(props) {
                     </Accordion.Body>
                 </Accordion.Item>
 
-                <Accordion.Item eventKey="5">
+                <Accordion.Item eventKey="7">
                     <Accordion.Header><b>Credit Card Fraud Detection (ML Model)</b></Accordion.Header>
                     <Accordion.Body>
                         - Visualized the data through scatter plots and applied under-sampling to address the challenge of unbalanced data
@@ -91,7 +127,7 @@ function AlwaysOpenExample(props) {
                     </Accordion.Body>
                 </Accordion.Item>
 
-                <Accordion.Item eventKey="6">
+                <Accordion.Item eventKey="8">
                     <Accordion.Header><b>Handwritten Digit Recognition (ML Model)</b></Accordion.Header>
                     <Accordion.Body>
                         - Classifed hand-written digits from the MNIST dataset using Python, NumPy, Pandas, Scikit-learn, Matplotlib and Joblib
@@ -103,7 +139,7 @@ function AlwaysOpenExample(props) {
                     </Accordion.Body>
                 </Accordion.Item>
 
-                <Accordion.Item eventKey="7">
+                <Accordion.Item eventKey="9">
                     <Accordion.Header><b>Quiz (Android App)</b></Accordion.Header>
                     <Accordion.Body>
                         - Built a quiz app for Android using Java in android studio and converted it into a ready-to-install Android apk
@@ -113,7 +149,7 @@ function AlwaysOpenExample(props) {
                     </Accordion.Body>
                 </Accordion.Item>
 
-                <Accordion.Item eventKey="8">
+                <Accordion.Item eventKey="10">
                     <Accordion.Header><b>Cookie Clicker (Bot)</b></Accordion.Header>
                     <Accordion.Body>
                         - Implemented a bot with the help of Selenium using Python which can play an online game called cookie clicker smartly
@@ -123,7 +159,7 @@ function AlwaysOpenExample(props) {
                     </Accordion.Body>
                 </Accordion.Item>
 
-                <Accordion.Item eventKey="9">
+                <Accordion.Item eventKey="11">
                     <Accordion.Header><b>Dmail Scraper (Selenium Web Scraper)</b></Accordion.Header>
                     <Accordion.Body>
                         - Built a web scraper that logs into my account on my own email website and extracts a list of received email subjects
