@@ -30,13 +30,13 @@ function NavScrollExample(props) {
                                 <Link className="nav-link" to="/projects">Projects</Link>
                             }
                         </li>
-                        {/* <li className="nav-item">
+                        <li className="nav-item">
                             {props.experience === true ?
                                 <Link className="nav-link" to="/experience"><b>Experience</b></Link>
                                 :
                                 <Link className="nav-link" to="/experience">Experience</Link>
                             }
-                        </li> */}
+                        </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="https://drive.google.com/file/d/176iTzRpnBXoYf9pK5MgwRjIBKrBPv5M4/view   " target='_blank'>Resume</Link>
                         </li>
