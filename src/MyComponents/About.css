@@ -1,0 +1,75 @@
+.about-container {
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 20px;
+  font-size: 16px;
+}
+
+.about-title {
+  display: inline-flex;          /* required for glow effect */
+  justify-content: center;       /* horizontal center */
+  align-items: center;           /* vertical centering */
+  font-size: clamp(2rem, 4vw, 3.5rem);  /* responsive font */
+  font-weight: 700;
+  margin: 20px auto;     
+  margin-top: 0px;        /* vertical spacing + horizontal center */
+  padding: 30px 20px;            /* consistent vertical padding */
+  text-align: center;
+}
+
+.about-intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.about-image {
+  flex: 1 1 250px;
+  max-width: 300px;
+  border-radius: 10px;
+}
+
+.about-text {
+  flex: 2 1 400px;
+  text-align: justify;
+}
+
+.about-section {
+  margin-bottom: 30px;
+}
+
+.about-section h2 {
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+.about-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about-section li {
+  margin-bottom: 8px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .about-intro {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-image {
+    margin: 0 auto;
+  }
+
+  .about-text {
+    text-align: left;
+  }
+
+  .about-section h2 {
+    font-size: 20px;
+  }
+}

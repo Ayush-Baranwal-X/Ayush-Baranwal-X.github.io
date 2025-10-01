@@ -1,61 +1,74 @@
 import Accordion from 'react-bootstrap/Accordion';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import './Experience.css';
 
-function AlwaysOpenExample(props) {
-    return (
-        <div style={{ marginLeft: props.mobile === false ? '19.5%' : '5%', marginRight: props.mobile === false ? '19.5%' : '5%' }}>
-            <br></br>
-            <h1>Experience</h1>
-            <br></br>
-            <Accordion defaultActiveKey={['0']} alwaysOpen>
+const experienceData = [
+  {
+    company: 'Air India, Gurgaon, India',
+    role: 'Software Developer',
+    duration: 'Nov, 2024 - Present',
+    mobileRole: 'SDE',
+    points: [
+      'Redesigned PilotPlus app from scratch, setting up reusable components & managers (network, color, image, font)',
+      'Created Core Data entities, and MVVM architecture involving advanced features (drag-and-drop, animations, etc)',
+      'Built validation logic reducing backend load by 30% and redesigned data flow reducing PSR filling time by 60%',
+      'Enhanced CEPlus app with new features, integrating REST APIs and caching data in Core Data for offline use',
+      'Implemented async calls for efficiency, wrote exhaustive tests and closed 100+ Jira tickets via GitHub/SourceTree'
+    ]
+  },
+  {
+    company: 'JSW, Mumbai, India',
+    role: 'Industry Analyst Intern',
+    duration: 'May, 2023 - Jul, 2023',
+    mobileRole: 'Industry Analyst Intern',
+    points: [
+      'Used an Excel-based model with demand, costs, and pricing estimates to identify a $300M market opportunity',
+      'Conducted data-driven market research on PUF Panels and analyzed trends, giving insights to senior management'
+    ]
+  },
+  {
+    company: 'NVOI, Delaware, USA',
+    role: 'Video Game Developer Intern',
+    duration: 'Jun, 2022 - Jul, 2022',
+    mobileRole: 'Game Developer Intern',
+    points: [
+      'Developed 2D arcade games with procedural level generation for a Web 3.0 startup using the Godot Engine',
+      'Built infinite side-scrolling gameplay with seamless background scrolling and mechanics like jumping, shooting, etc'
+    ]
+  }
+];
 
-                <Accordion.Item eventKey="0">
-                    {props.mobile === false ?
-                        <Accordion.Header><b style={{ color: props.darkMode === false ? 'black' : 'white' }}> Air India, Gurgaon, India</b> &nbsp; - Software Developer (Nov, 2024 - Present)</Accordion.Header>
-                        : 
-                        <Accordion.Header><b style={{ color: props.darkMode === false ? 'black' : 'white' }}> Air India, Gurgaon, India</b> SDE <br></br> (Nov, 2024 - Present)</Accordion.Header>   
-                    }
-                    <Accordion.Body>
-                        - Realized a 2481 Cr opportunity in the PUF panel market and created an investor pitch to present it to the upper management
-                        <br></br>
-                        - Utilized Microsoft Excel to perform a cost and profitability analysis as well as a market size analysis for PUF panels
-                        <br></br>
-                        - Suggested a distribution channel and made a market launch strategy for 2 new products of JSW Steel Coated Products
-                        <br></br>
-                    </Accordion.Body>
-                </Accordion.Item>
+function AlwaysOpenExample({ mobile }) {
+  return (
+    <div className={`experience-container ${mobile ? 'mobile' : 'desktop'}`}>
+      <br></br>
+      <h1>Experience</h1>
+      <br></br>
+      <Accordion defaultActiveKey={['0']} alwaysOpen>
+        {experienceData.map((exp, index) => (
+          <Accordion.Item eventKey={index.toString()} key={index}>
+            <Accordion.Header>
+              {mobile === false ? (
+                <><b>{exp.company}</b> &nbsp; - {exp.role} ({exp.duration})</>
+              ) : (
+                <><b>{exp.company}</b> {exp.mobileRole} <br /> ({exp.duration})</>
+              )}
+            </Accordion.Header>
+            <Accordion.Body>
+              <ul className="experience-points">
+                {exp.points.map((point, i) => (
+                  <li key={i}>{point}</li>
+                ))}
+              </ul>
+            </Accordion.Body>
+          </Accordion.Item>
+        ))}
+      </Accordion>
+      <br/>
+      <br/>
 
-                <Accordion.Item eventKey="1">
-                    {props.mobile === false ?
-                        <Accordion.Header><b style={{ color: props.darkMode === false ? 'black' : 'white' }}> JSW, Mumbai, India</b> &nbsp; - Industry Analyst Intern (May, 2023 - Jul, 2023)</Accordion.Header>
-                        : 
-                        <Accordion.Header><b style={{ color: props.darkMode === false ? 'black' : 'white' }}> JSW, Mumbai, India</b> Industry Analyst Intern <br></br> (May, 2023 - Jul, 2023)</Accordion.Header>   
-                    }
-                    <Accordion.Body>
-                        - Used an Excel-based model with demand, costs, and pricing estimates to identify a $300M market opportunity
-                        <br></br>
-                        - Conducted data-driven market research on PUF Panels and analyzed trends, giving insights to senior management
-                        <br></br>
-                    </Accordion.Body>
-                </Accordion.Item>
-
-                <Accordion.Item eventKey="2">
-                    {props.mobile === false ?
-                        <Accordion.Header><b style={{ color: props.darkMode === false ? 'black' : 'white' }}> NVOI, Delaware, USA</b> &nbsp; - Game Developer Intern (Jun, 2022 - Jul, 2022)</Accordion.Header>
-                        : 
-                        <Accordion.Header><b style={{ color: props.darkMode === false ? 'black' : 'white' }}> NVOI, Delaware, USA</b> Game Developer Intern <br></br> (Jun, 2022 - Jul, 2022)</Accordion.Header>   
-                    }
-                    <Accordion.Body>
-                        - Developed 2D arcade games with procedural level generation for a Web 3.0 startup using the Godot Engine
-                        <br></br>
-                        - Built infinite side-scrolling gameplay with seamless background scrolling and mechanics like jumping, shooting, etc
-                        <br></br>
-                    </Accordion.Body>
-                </Accordion.Item>
-
-            </Accordion>
-        </div>
-    );
+    </div>
+  );
 }
 
 export default AlwaysOpenExample;

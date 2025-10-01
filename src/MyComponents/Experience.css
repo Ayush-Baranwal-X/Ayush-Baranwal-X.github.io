@@ -1,0 +1,19 @@
+.experience-container {
+  margin-left: 19.5%;
+  margin-right: 19.5%;
+}
+
+.experience-container.mobile {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.experience-points {
+  padding-left: 20px;
+  list-style-type: disc;
+  margin-bottom: 10px;
+}
+
+.experience-points li {
+  margin-bottom: 6px;
+}

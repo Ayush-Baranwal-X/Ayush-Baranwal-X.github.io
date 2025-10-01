@@ -1,72 +1,88 @@
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 function NavScrollExample(props) {
-    return (
-        <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{ position: 'fixed', width: '100%', paddingLeft: (props.mobile || props.tab) === true ? '':'19.5%', paddingRight: (props.mobile || props.tab) === true ? '':'19.5%', zIndex: '4' }}>
-            <div className="container-fluid">
-                <Link className="navbar-brand" to="/">{props.title}</Link>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li className="nav-item">
-                            {props.home === true ?
-                                <Link className="nav-link" aria-current="page" to="/"><b>Home</b></Link>
-                                :
-                                <Link className="nav-link" aria-current="page" to="/">Home</Link>
-                            }
-                        </li>
-                        <li className="nav-item">
-                            {props.projects === true ?
-                                <Link className="nav-link" to="/projects"><b>Projects</b></Link>
-                                :
-                                <Link className="nav-link" to="/projects">Projects</Link>
-                            }
-                        </li>
-                        <li className="nav-item">
-                            {props.experience === true ?
-                                <Link className="nav-link" to="/experience"><b>Experience</b></Link>
-                                :
-                                <Link className="nav-link" to="/experience">Experience</Link>
-                            }
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="https://drive.google.com/file/d/176iTzRpnBXoYf9pK5MgwRjIBKrBPv5M4/view   " target='_blank'>Resume</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="https://dmail.pythonanywhere.com" target='_blank'>Dmail</Link>
-                        </li>
-                        {/* <li className="nav-item">
-                            <Link className="nav-link" to="https://listxtodo.web.app" target='_blank'>To-Do</Link>
-                        </li> */}
-                        <li className="nav-item">
-                            <Link className="nav-link" to="https://ayushbaranwal.itch.io/" target='_blank'>Itch</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="https://blog-express-9t2d.onrender.com/" target='_blank'>Blog</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="https://akbxterminal.web.app" target='_blank'>Terminal</Link>
-                        </li>
-                    </ul>
-                    <button className="btn" onClick={() => { props.toggleTheme() }}>
-                        {props.darkMode === true ?
-                        <i class="fa-solid fa-sun fa-1x"></i>
-                        :
-                        <i class="fa-solid fa-moon fa-1x"></i>
-                        }
-                    </button>
-                </div>
-            </div>
-        </nav>
-    );
+  // Compute horizontal padding: 19.5% on desktop, 0 on mobile/tablet
+  const paddingX = (props.mobile || props.tab) ? '0' : '13%';
+
+  return (
+    <nav
+      className="navbar navbar-expand-lg bg-body-tertiary"
+      style={{
+        position: 'fixed',
+        width: '100%',
+        paddingLeft: paddingX,
+        paddingRight: paddingX,
+        zIndex: 4,
+        boxShadow: '0 2px 8px rgba(0,0,0,0.1)', // subtle separation from content
+      }}
+    >
+      <div className="container-fluid" style={{ padding: 0 }}>
+        <Link className="navbar-brand" to="/">
+          {props.title}
+        </Link>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <Link className="nav-link" to="/">
+                {props.home ? <b>Home</b> : 'Home'}
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/experience">
+                {props.experience ? <b>Experience</b> : 'Experience'}
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/projects">
+                {props.projects ? <b>Projects</b> : 'Projects'}
+              </Link>
+            </li>
+            <li className="nav-item">
+              <a
+                className="nav-link"
+                href="https://bit.ly/akb-cv"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Resume
+              </a>
+            </li>
+            {/* <li className="nav-item">
+              <a
+                className="nav-link"
+                href="https://akbxterminal.web.app"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Terminal
+              </a>
+            </li> */}
+          </ul>
+
+          <button className="btn" onClick={props.toggleTheme}>
+            {props.darkMode ? (
+              <i className="fa-solid fa-sun fa-1x"></i>
+            ) : (
+              <i className="fa-solid fa-moon fa-1x"></i>
+            )}
+          </button>
+        </div>
+      </div>
+    </nav>
+  );
 }
 
 export default NavScrollExample;
