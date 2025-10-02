@@ -152,7 +152,7 @@ function App() {
           element={
             <>
               <Header
-                title="Ayush Kumar Baranwal"
+                title="Ayush"
                 experience
                 toggleTheme={toggleTheme}
                 progress
