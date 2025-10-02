@@ -53,19 +53,24 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0 20px;
-  height: 50px;
+  padding: 20px 40px;       /* vertical + horizontal padding */
   min-width: 120px;
   border: none;
   border-radius: 10px;
   background: #111;
   color: #fff;
   cursor: pointer;
-  font-size: 18px;
+  font-size: clamp(1.5rem, 4vw, 2.5rem); /* responsive font size */
   font-weight: 600;
   transition: box-shadow 0.25s ease, transform 0.12s ease;
   overflow: visible;
+  line-height: 1.2;         /* spacing between lines */
+  text-align: center;
+  white-space: normal;      /* allow wrapping */
+  box-sizing: border-box;   /* include padding in width */
+  max-width: 95%;           /* responsive max width for mobile */
 }
+
 
 .glow-on-hover:hover {
   box-shadow:

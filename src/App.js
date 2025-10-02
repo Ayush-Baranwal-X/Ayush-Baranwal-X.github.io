@@ -1,183 +1,175 @@
-import React from 'react';
-
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-import logo from './logo.svg';
 import './App.css';
+
 import Header from './MyComponents/Header.js';
 import Footer from './MyComponents/Footer.js';
 import About from './MyComponents/About.js';
 import Projects from './MyComponents/Projects.js';
 import Social from './MyComponents/Social.js';
-import Experience from './MyComponents/Experience.js'
-import PageNotFound from './MyComponents/PageNotFound.js'
-import $ from 'jquery';
-import { useState, useEffect } from 'react';
-import { Navigate, useLocation , useNavigate} from 'react-router-dom';
+import Experience from './MyComponents/Experience.js';
+import PageNotFound from './MyComponents/PageNotFound.js';
 
 import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link
+  useLocation
 } from 'react-router-dom';
 
-
 function App() {
-  // let mobile = false;
-  // function isMobile() {
-  //   const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
-  //   return regex.test(navigator.userAgent);
-  // }
+  // Device type detection
+  const screenWidth = window.screen.width;
+  const mobile = screenWidth < 768;
+  const tab = screenWidth >= 768 && screenWidth <= 1024;
 
-  let screenWidth = window.screen.width;
-  let screenHeight = window.screen.height;
-  let mobile = false;
-  let tab = false;
-  if (screenWidth < 768) {
-    mobile = true;
-  }
-  if (((screenWidth <= 1024 && screenWidth >= 768))) {
-    tab = true;
-  }
-
-  let initTheme = JSON.parse(localStorage.getItem('darkMode'));
-
-  const [darkMode, setMode] = useState(initTheme);
+  // Dark mode state
+  const initTheme = JSON.parse(localStorage.getItem('darkMode'));
+  const [darkMode, setDarkMode] = useState(initTheme);
 
   const toggleTheme = () => {
-    if (darkMode === true) {
-      document.documentElement.setAttribute('data-bs-theme', 'light');
-      setMode(false)
-    }
-    else {
-      document.documentElement.setAttribute('data-bs-theme', 'dark');
-      setMode(true)
-    }
-    // We are passing !darkMode here as the darkMode variable is not updated yet irrespective of the code just above
     const newMode = !darkMode;
+    setDarkMode(newMode);
+    document.documentElement.setAttribute('data-bs-theme', newMode ? 'dark' : 'light');
     localStorage.setItem('darkMode', JSON.stringify(newMode));
-    return;
-  }
+  };
 
   useEffect(() => {
     if (initTheme != null) {
-      document.documentElement.setAttribute('data-bs-theme', initTheme ? 'dark' : 'white');
+      document.documentElement.setAttribute('data-bs-theme', initTheme ? 'dark' : 'light');
     }
-    // Clean up function (optional but good practise)
-    return () => {
-
-    };
   }, [initTheme]);
 
-
-  // Scrolling Bar
-
-
-  const fillscrollline = () => {
+  // Scroll progress bar
+  const fillScrollLine = () => {
     const scrollline = document.getElementById('progress-bar-scroller');
-    if (scrollline === null) {
-      return;
-    }
-    else {
-      const windowHeight = window.innerHeight;
-      const fullHeight = document.body.clientHeight;
-      const scrolled = window.scrollY;
-      const percentScrolledx = (scrolled / (fullHeight - windowHeight)) * 100;
-      const percentScrolled = (percentScrolledx > 95 ? 100 : percentScrolledx);
-      scrollline.style.width = percentScrolled + '%';
-    }
+    if (!scrollline) return;
+
+    const windowHeight = window.innerHeight;
+    const fullHeight = document.body.clientHeight;
+    const scrolled = window.scrollY;
+    const percentScrolled = Math.min((scrolled / (fullHeight - windowHeight)) * 100, 100);
+    scrollline.style.width = percentScrolled + '%';
   };
 
-  useEffect(()=>{
-    window.addEventListener('scroll', fillscrollline);
-    return ()=> {
-      window.removeEventListener('scroll',fillscrollline);
-    };
-  },[]);
+  useEffect(() => {
+    window.addEventListener('scroll', fillScrollLine);
+    return () => window.removeEventListener('scroll', fillScrollLine);
+  }, []);
 
-  function ScrollComponent() {
+  // Scroll to top on route change
+  function ScrollToTop() {
     const location = useLocation();
-
     useEffect(() => {
       window.scrollTo(0, 0);
-      fillscrollline();
+      fillScrollLine();
     }, [location]);
+    return null;
   }
 
-  function ModifyHeightProgressBarComponent() {
+  // Observe dynamic page height changes
+  function ModifyHeightProgressBar() {
     const [pageHeight, setPageHeight] = useState(document.body.clientHeight);
-    
+
     useEffect(() => {
-      const observer = new MutationObserver(()=>{
+      const observer = new MutationObserver(() => {
         const newHeight = document.body.clientHeight;
-        if(newHeight !== pageHeight)
-        {
-          setPageHeight(newHeight);
-        }
+        if (newHeight !== pageHeight) setPageHeight(newHeight);
       });
-
-      observer.observe(document.body , {attributes:true, childList: true, subtree: true});
-      return () =>{
-        observer.disconnect();
-      };
+      observer.observe(document.body, { attributes: true, childList: true, subtree: true });
+      return () => observer.disconnect();
     }, [pageHeight]);
 
-    useEffect(()=>{
-      fillscrollline();
-    }, [pageHeight]);
+    useEffect(() => fillScrollLine(), [pageHeight]);
 
     return null;
   }
 
   return (
-    <>
-      <Router>
-        <Routes>
-          <Route exact path='/' element={
+    <Router>
+      <Routes>
+        <Route
+          exact
+          path="/"
+          element={
             <>
-              {/* Here in the header component props.projects and props.experience should have values = false. But we don't need to pass them as default values are used for props which are not passed. And for a boolean it is false. */}
-              <Header title="Ayush Kumar Baranwal" home={true} toggleTheme={toggleTheme} progress={true} darkMode={darkMode} mobile={mobile} tab={tab} />
+              <Header
+                title="Ayush Kumar Baranwal"
+                home
+                toggleTheme={toggleTheme}
+                progress
+                darkMode={darkMode}
+                mobile={mobile}
+                tab={tab}
+              />
               <About mobile={mobile} tab={tab} />
-              <ScrollComponent />
-              {/* Modify scroll component is used in case you are using elements in your app which can change the height of the page. It basically dynamically changes the current progress in the progress bar. */}
-              {/* Here it is not needed */}
+              <ScrollToTop />
             </>
-          }>
-          </Route>
-          <Route exact path='/projects' element={
+          }
+        />
+        <Route
+          exact
+          path="/projects"
+          element={
             <>
-              <Header title="Ayush Kumar Baranwal" projects={true} toggleTheme={toggleTheme} progress={true} darkMode={darkMode} mobile={mobile} tab={tab} />
-              <Projects mobile={mobile} darkMode = {darkMode}/>
-              <ScrollComponent />
-              <ModifyHeightProgressBarComponent />
+              <Header
+                title="Ayush Kumar Baranwal"
+                projects
+                toggleTheme={toggleTheme}
+                progress
+                darkMode={darkMode}
+                mobile={mobile}
+                tab={tab}
+              />
+              <Projects mobile={mobile} darkMode={darkMode} />
+              <ScrollToTop />
+              <ModifyHeightProgressBar />
             </>
-          }>
-          </Route>
-          <Route exact path='/experience' element={
+          }
+        />
+        <Route
+          exact
+          path="/experience"
+          element={
             <>
-              <Header title="Ayush Kumar Baranwal" experience={true} toggleTheme={toggleTheme} progress={true} darkMode={darkMode} mobile={mobile} tab={tab} />
-              <Experience mobile={mobile} darkMode = {darkMode}/>
-              <ScrollComponent />
-              <ModifyHeightProgressBarComponent />
+              <Header
+                title="Ayush Kumar Baranwal"
+                experience
+                toggleTheme={toggleTheme}
+                progress
+                darkMode={darkMode}
+                mobile={mobile}
+                tab={tab}
+              />
+              <Experience mobile={mobile} darkMode={darkMode} />
+              <ScrollToTop />
+              <ModifyHeightProgressBar />
             </>
-          }>
-          </Route>
-          <Route exact path='*' element={
+          }
+        />
+        <Route
+          path="*"
+          element={
             <>
-              <Header title="Ayush Kumar Baranwal" experience={true} toggleTheme={toggleTheme} progress={true} darkMode={darkMode} mobile={mobile} tab={tab} />
-              <PageNotFound/>
-              <ScrollComponent />
-              <ModifyHeightProgressBarComponent />
-              {/* temp */}
+              <Header
+                title="Ayush Kumar Baranwal"
+                experience
+                toggleTheme={toggleTheme}
+                progress
+                darkMode={darkMode}
+                mobile={mobile}
+                tab={tab}
+              />
+              <PageNotFound />
+              <ScrollToTop />
+              <ModifyHeightProgressBar />
             </>
-          }>
-          </Route>
-        </Routes>
-        <Social darkMode={darkMode} mobile={mobile} />
-        <Footer mobile={mobile} />
-      </Router>
-    </>
+          }
+        />
+      </Routes>
+      <Social darkMode={darkMode} mobile={mobile} />
+      <Footer mobile={mobile} />
+    </Router>
   );
 }
 

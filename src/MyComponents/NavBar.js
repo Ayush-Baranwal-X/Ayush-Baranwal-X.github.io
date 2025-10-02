@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function NavScrollExample(props) {
-  // Compute horizontal padding: 19.5% on desktop, 0 on mobile/tablet
-  const paddingX = (props.mobile || props.tab) ? '0' : '13%';
+function NavBar(props) {
+  const paddingX = '5%';
+  const isMobile = window.innerWidth < 992; // bootstrap lg breakpoint
 
   return (
     <nav
@@ -14,13 +14,25 @@ function NavScrollExample(props) {
         paddingLeft: paddingX,
         paddingRight: paddingX,
         zIndex: 4,
-        boxShadow: '0 2px 8px rgba(0,0,0,0.1)', // subtle separation from content
+        boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
       }}
     >
-      <div className="container-fluid" style={{ padding: 0 }}>
+      <div className="container-fluid" style={{ padding: 0, display: 'flex', alignItems: 'center', width: '100%' }}>
+        {/* Brand on the left */}
         <Link className="navbar-brand" to="/">
           {props.title}
         </Link>
+
+        {/* Dark mode button always visible on right (mobile + desktop) */}
+        <button
+          className="btn ms-auto me-2 d-lg-none" // only visible on mobile
+          onClick={props.toggleTheme}
+          style={{ fontSize: '1.2rem' }}
+        >
+          {props.darkMode ? <i className="fa-solid fa-sun"></i> : <i className="fa-solid fa-moon"></i>}
+        </button>
+
+        {/* Hamburger button */}
         <button
           className="navbar-toggler"
           type="button"
@@ -33,56 +45,45 @@ function NavScrollExample(props) {
           <span className="navbar-toggler-icon"></span>
         </button>
 
+        {/* Navbar links */}
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <Link className="nav-link" to="/">
-                {props.home ? <b>Home</b> : 'Home'}
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/experience">
-                {props.experience ? <b>Experience</b> : 'Experience'}
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/projects">
-                {props.projects ? <b>Projects</b> : 'Projects'}
-              </Link>
-            </li>
+          <ul className="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+            {[
+              { name: 'Home', path: '/', active: props.home },
+              { name: 'Experience', path: '/experience', active: props.experience },
+              { name: 'Projects', path: '/projects', active: props.projects },
+            ].map((item, i) => (
+              <li className="nav-item" key={i}>
+                <Link className="nav-link" to={item.path}>
+                  {item.active ? <b>{item.name}</b> : item.name}
+                </Link>
+              </li>
+            ))}
             <li className="nav-item">
               <a
                 className="nav-link"
-                href="https://bit.ly/akb-cv"
+                href="https://drive.google.com/file/d/1-sAGlmIU3wIfno0rWl-D72ihq_XlqTG3/view"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Resume
               </a>
             </li>
-            {/* <li className="nav-item">
-              <a
-                className="nav-link"
-                href="https://akbxterminal.web.app"
-                target="_blank"
-                rel="noopener noreferrer"
+            {/* Dark mode button on desktop */}
+            <li className="nav-item d-none d-lg-block ms-3">
+              <button
+                className="btn"
+                onClick={props.toggleTheme}
+                style={{ fontSize: '1.2rem' }}
               >
-                Terminal
-              </a>
-            </li> */}
+                {props.darkMode ? <i className="fa-solid fa-sun"></i> : <i className="fa-solid fa-moon"></i>}
+              </button>
+            </li>
           </ul>
-
-          <button className="btn" onClick={props.toggleTheme}>
-            {props.darkMode ? (
-              <i className="fa-solid fa-sun fa-1x"></i>
-            ) : (
-              <i className="fa-solid fa-moon fa-1x"></i>
-            )}
-          </button>
         </div>
       </div>
     </nav>
   );
 }
 
-export default NavScrollExample;
+export default NavBar;

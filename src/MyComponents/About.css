@@ -6,16 +6,18 @@
 }
 
 .about-title {
-  display: inline-flex;          /* required for glow effect */
-  justify-content: center;       /* horizontal center */
-  align-items: center;           /* vertical centering */
-  font-size: clamp(2rem, 4vw, 3.5rem);  /* responsive font */
+  display: block;                /* full-width block so it can wrap naturally */
+  font-size: clamp(2rem, 5vw, 3.5rem); /* responsive font scaling */
   font-weight: 700;
-  margin: 20px auto;     
-  margin-top: 0px;        /* vertical spacing + horizontal center */
-  padding: 30px 20px;            /* consistent vertical padding */
-  text-align: center;
+  margin: 20px auto;            /* centers the block horizontally */
+  padding: 20px;                 /* ensures the glow box surrounds the text */
+  text-align: center;            /* text centered */
+  line-height: 1.2;              /* good spacing between wrapped lines */
+  white-space: normal;           /* allow text to wrap */
+  max-width: 100%;               /* prevent horizontal overflow */
+  box-sizing: border-box;        /* padding included in width */
 }
+
 
 .about-intro {
   display: flex;

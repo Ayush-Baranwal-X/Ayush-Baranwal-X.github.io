@@ -1,6 +1,8 @@
+/* Container */
 .experience-container {
-  margin-left: 19.5%;
-  margin-right: 19.5%;
+  margin-left: 13%;
+  margin-right: 13%;
+  color: black; /* default light mode text */
 }
 
 .experience-container.mobile {
@@ -8,6 +10,14 @@
   margin-right: 5%;
 }
 
+/* Title */
+.exp-title {
+  font-size: 2.2rem; /* bigger main header */
+  font-weight: bold;
+  color: black; /* light mode */
+}
+
+/* Bullet points */
 .experience-points {
   padding-left: 20px;
   list-style-type: disc;
@@ -16,4 +26,45 @@
 
 .experience-points li {
   margin-bottom: 6px;
+  font-size: 1rem; /* restore font size */
+  line-height: 1.5;
+}
+
+/* Accordion Header content */
+.header-content {
+  display: flex;
+  flex-direction: column; /* stack vertically */
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+/* Company Name */
+.header-content .company {
+  font-size: 1.2rem; /* restore size */
+  font-weight: bold;
+  color: black; /* light mode */
+}
+
+/* Role */
+.header-content .role {
+  font-size: 1rem;
+  color: #555; /* light gray for light mode */
+  margin-top: 2px;
+}
+
+/* Duration */
+.header-content .duration {
+  font-size: 0.95rem;
+  color: #777; /* subtle contrast */
+  margin-top: 1px;
+}
+
+/* Dark mode */
+.experience-container.dark-mode,
+.experience-container.dark-mode .exp-title,
+.experience-container.dark-mode .experience-points li,
+.experience-container.dark-mode .header-content .company,
+.experience-container.dark-mode .header-content .role,
+.experience-container.dark-mode .header-content .duration {
+  color: white;
 }

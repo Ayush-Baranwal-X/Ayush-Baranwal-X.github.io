@@ -1,6 +1,8 @@
+/* Container */
 .accordion-container {
-  margin-left: 19.5%;
-  margin-right: 19.5%;
+  margin-left: 13%;
+  margin-right: 13%;
+  color: black; /* default light mode */
 }
 
 .accordion-container.mobile {
@@ -8,6 +10,16 @@
   margin-right: 5%;
 }
 
+/* Accordion Header */
+.project-header {
+  display: flex;
+  flex-direction: column; /* stack if needed */
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: black; /* light mode */
+}
+
+/* Bullet points */
 .project-points {
   padding-left: 20px;
   list-style-type: disc;
@@ -16,4 +28,14 @@
 
 .project-points li {
   margin-bottom: 6px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: black; /* light mode */
+}
+
+/* Dark mode override */
+.accordion-container.dark-mode,
+.accordion-container.dark-mode .project-header,
+.accordion-container.dark-mode .project-points li {
+  color: white;
 }

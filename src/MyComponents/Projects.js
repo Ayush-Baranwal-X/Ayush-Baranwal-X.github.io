@@ -132,7 +132,7 @@ const projectsData = [
 
 function ProjectsAccordion({ darkMode, mobile }) {
     return (
-        <div className={`accordion-container ${mobile ? 'mobile' : 'desktop'}`}>
+        <div className={`accordion-container ${mobile ? 'mobile' : 'desktop'} ${darkMode ? 'dark-mode' : ''}`}>
             <br></br>
             <h1>Projects</h1>
             <br></br>
@@ -140,11 +140,13 @@ function ProjectsAccordion({ darkMode, mobile }) {
                 {projectsData.map((project, index) => (
                     <Accordion.Item eventKey={index.toString()} key={index}>
                         <Accordion.Header>
+                            <div className='project-header'>
                             {mobile ? (
                                 <b>{project.title}</b>
                             ) : (
                                 <b>{project.title}</b>
                             )}
+                            </div>
                         </Accordion.Header>
                         <Accordion.Body>
                             <ul className="project-points">

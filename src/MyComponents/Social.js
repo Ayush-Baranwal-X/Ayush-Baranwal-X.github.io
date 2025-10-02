@@ -13,12 +13,29 @@ const Social = ({ darkMode, mobile }) => {
   ];
 
   return (
-    <div>
-      <center>
-        <div style={{ margin: mobile === false ? '0px 19.5%' : '0px 10%', display: 'flex', justifyContent: 'center', gap: '20px' }}>
-          {socialLinks.map((link, index) => (
+    <div style={{ width: '100%' }}>
+      <div
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          gap: '25px',  // small horizontal gap
+          paddingLeft: mobile ? '5%' : '15%',
+          paddingRight: mobile ? '5%' : '15%',
+          boxSizing: 'border-box',
+        }}
+      >
+        {socialLinks.map((link, index) => (
+          <div
+            key={index}
+            style={{
+              flex: '0 1 auto',   // shrink to content width
+              display: 'flex',
+              justifyContent: 'center',
+              marginBottom: '8px', // vertical gap
+            }}
+          >
             <a
-              key={index}
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
@@ -26,9 +43,9 @@ const Social = ({ darkMode, mobile }) => {
             >
               <i className={`${link.icon} fa-4x`} id={hoverId}></i>
             </a>
-          ))}
-        </div>
-      </center>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
