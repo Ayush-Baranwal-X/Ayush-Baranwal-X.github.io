@@ -94,7 +94,7 @@ function App() {
           element={
             <>
               <Header
-                title="Ayush Kumar Baranwal"
+                title="Welcome"
                 home
                 toggleTheme={toggleTheme}
                 progress
