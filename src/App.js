@@ -94,7 +94,7 @@ function App() {
           element={
             <>
               <Header
-                title="Welcome"
+                title="Ayush"
                 home
                 toggleTheme={toggleTheme}
                 progress
@@ -113,7 +113,7 @@ function App() {
           element={
             <>
               <Header
-                title="Ayush Kumar Baranwal"
+                title="Ayush"
                 projects
                 toggleTheme={toggleTheme}
                 progress
@@ -133,7 +133,7 @@ function App() {
           element={
             <>
               <Header
-                title="Ayush Kumar Baranwal"
+                title="Ayush"
                 experience
                 toggleTheme={toggleTheme}
                 progress
