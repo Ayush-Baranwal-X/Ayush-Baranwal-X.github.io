@@ -124,3 +124,10 @@ i#hover_black:hover {
   color: cyan;
 }
 
+
+/* Remove unwanted underline background from progress bar */
+.progress {
+  background-color: transparent !important; /* remove gray background */
+  border: none !important;                  /* remove subtle border if any */
+  box-shadow: none !important;              /* ensure no shadow line */
+}
