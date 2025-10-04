@@ -5,7 +5,7 @@ const s = (props) => {
         <>
             <div style={{height:'40px'}}></div>
             <footer style={{ position: 'fixed', zIndex: '4', backgroundColor: 'black', color: 'white', bottom: '0', height: '30px', width: '100%', textAlign:'center', paddingTop:'0.2%' }}>
-                © 2024 Ayush. All Rights Reserved.
+                © 2025 Ayush. All Rights Reserved.
             </footer>
         </>
     )
